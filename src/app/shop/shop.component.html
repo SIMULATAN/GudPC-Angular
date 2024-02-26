@@ -1,1 +1,6 @@
-<p>shop works!</p>
+<div class="card-group">
+  <app-item-card
+    *ngFor="let currItem of items"
+    [item]="currItem">
+  </app-item-card>
+</div>
