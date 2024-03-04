@@ -1,0 +1,22 @@
+<div *ngIf="this.item !== undefined; else doesNotExist">
+  <h1 class="bg-primary text-light header">{{ this.item.name }}</h1>
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <img [src]="this.item.image" alt="photo of the product" width="100%"/>
+      </div>
+      <div class="col">
+        <h2>Description</h2>
+        <p>{{ this.item.description }}</p>
+
+        <h3>Price: {{ this.item.price }}</h3>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #doesNotExist>
+  <div class="text-center">
+    <h1 class="text-primary">Player Not Found 👀</h1>
+  </div>
+</ng-template>
