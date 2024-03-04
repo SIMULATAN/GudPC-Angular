@@ -1,0 +1,22 @@
+<div class="container p-2">
+  <div class="row">
+    <div class="col text-center">
+      <h1 class="text-primary">Your shopping cart</h1>
+
+      <ul class="list-group">
+        <li *ngFor="let cartItem of this.cartService.getItems()" class="list-group-item d-flex align-items-center justify-content-center gap-2">
+          <p class="badge bg-primary m-0">{{cartItem.quantity}}</p>
+
+          <a [routerLink]="['/details', cartItem.id]">{{cartItem.name}}</a>
+
+          <a class="btn btn-primary" (click)="removeItem(cartItem.id)">Remove</a>
+          <a class="btn btn-primary" (click)="incrementItem(cartItem.id)">+</a>
+          <a class="btn btn-primary" (click)="decrementItem(cartItem.id)">-</a>
+        </li>
+      </ul>
+      <button class="my-2 btn btn-primary"
+              [disabled]="this.cartService.items.length < 1"
+              (click)="clear()">Clear</button>
+    </div>
+  </div>
+</div>
